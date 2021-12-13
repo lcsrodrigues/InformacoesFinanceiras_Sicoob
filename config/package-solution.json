@@ -1,0 +1,20 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+    "solution": {
+        "name": "informacoes-financeiras-sicoob-client-side-solution",
+        "id": "e18aca77-5b71-43f4-b124-b9c3eca15d10",
+        "version": "1.0.0.1",
+        "includeClientSideAssets": true,
+        "isDomainIsolated": false,
+        "developer": {
+            "name": "",
+            "websiteUrl": "",
+            "privacyUrl": "",
+            "termsOfUseUrl": "",
+            "mpnId": "Undefined-1.13.1"
+        }
+    },
+    "paths": {
+        "zippedPackage": "solution/informacoes-financeiras-sicoob.sppkg"
+    }
+}
