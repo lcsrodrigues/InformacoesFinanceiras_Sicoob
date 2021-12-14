@@ -1,5 +1,4 @@
 import * as React from 'react';
-import styles from './InformacoesFinanceirasSicoob.module.scss';
 import { IInformacoesFinanceirasSicoobProps } from './IInformacoesFinanceirasSicoobProps';
 import InformacoesFinanceirasSicoobWP from './InformacoesFinanceirasSicoob/InformacoesFinanceirasSicoobWP';
 

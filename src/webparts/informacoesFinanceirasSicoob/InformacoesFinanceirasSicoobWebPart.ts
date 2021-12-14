@@ -18,10 +18,12 @@ export interface IInformacoesFinanceirasSicoobWebPartProps {
 export default class InformacoesFinanceirasSicoobWebPart extends BaseClientSideWebPart<IInformacoesFinanceirasSicoobWebPartProps> {
 
   public render(): void {
+    
     const element: React.ReactElement<IInformacoesFinanceirasSicoobProps> = React.createElement(
       InformacoesFinanceirasSicoob,
       {
-        description: this.properties.description
+        description: this.properties.description,
+        context: this.context
       }
     );
 
