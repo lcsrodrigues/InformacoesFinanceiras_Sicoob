@@ -23,7 +23,8 @@ export default class InformacoesFinanceirasSicoobWebPart extends BaseClientSideW
       InformacoesFinanceirasSicoob,
       {
         description: this.properties.description,
-        context: this.context
+        context: this.context,
+        serverRelativeUrl:this.context.pageContext.site.serverRelativeUrl
       }
     );
 
