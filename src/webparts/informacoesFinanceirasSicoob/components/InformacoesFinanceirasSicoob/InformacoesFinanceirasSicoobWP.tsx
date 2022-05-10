@@ -53,6 +53,10 @@ export default function InformacoesFinanceirasSicoobWP({ props }) {
         currency: 'BRL',
     });
 
+    const convert = (value) => {
+        return value.toString().replace(".", ",");
+    };
+
     return (
         <div className={styles.wpInformacoesFinanceiras}>
             <ul>
@@ -80,41 +84,41 @@ export default function InformacoesFinanceirasSicoobWP({ props }) {
                                 <>
                                     <li>
                                         <div className={styles.liLeft}>Selic (a.a)</div>
-                                        <div className={styles.liRight}>{formatter.format(parseInt(data.field_2))}</div>
+                                        <div className={styles.liRight}>{convert(data.field_2)}%</div>
                                     </li>
                                     <li>
                                         <div className={styles.liLeft}>CDI (a.a)</div>
-                                        <div className={styles.liRight}>{formatter.format(parseInt(data.field_3))}</div>
+                                        <div className={styles.liRight}>{convert(data.field_3)}%</div>
                                     </li>
                                     <li>
                                         <div className={styles.liLeft}>Poupança (a.m)</div>
-                                        <div className={styles.liRight}>{formatter.format(parseInt(data.field_4))}</div>
+                                        <div className={styles.liRight}>{convert(data.field_4)}%</div>
                                     </li>
                                     <li>
                                         <div className={styles.liLeft}>TR (a.m)</div>
-                                        <div className={styles.liRight}>{formatter.format(parseInt(data.field_5))}</div>
+                                        <div className={styles.liRight}>{convert(data.field_5)}%</div>
                                     </li>
                                     <li>
                                         <div className={styles.liLeft}>TBF (a.m)</div>
-                                        <div className={styles.liRight}>{formatter.format(parseInt(data.field_6))}</div>
+                                        <div className={styles.liRight}>{convert(data.field_6)}%</div>
                                     </li>
                                     <li>
                                         <div className={styles.liLeft}>TJLP (a.a)</div>
-                                        <div className={styles.liRight}>{formatter.format(parseInt(data.field_7))}</div>
+                                        <div className={styles.liRight}>{convert(data.field_7)}%</div>
                                     </li>
                                     <li>
                                         <div className={styles.liLeft}>IPCA (a.a)</div>
-                                        <div className={styles.liRight}>{formatter.format(parseInt(data.field_8))}</div>
+                                        <div className={styles.liRight}>{convert(data.field_8)}%</div>
                                     </li>
                                     <li>
                                         <div className={styles.liLeft}>IGPM (a.m)</div>
-                                        <div className={styles.liRight}>{formatter.format(parseInt(data.field_9))}</div>
+                                        <div className={styles.liRight}>{convert(data.field_9)}%</div>
                                     </li>
                                 </>
                             )
                         })
                         :
-                        <></>
+                        <><h1>Sem Resultados</h1></>
                 }
             </ul>
         </div >
