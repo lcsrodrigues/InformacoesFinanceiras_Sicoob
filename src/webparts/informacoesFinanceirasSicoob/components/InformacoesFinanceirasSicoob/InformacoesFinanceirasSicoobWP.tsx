@@ -5,6 +5,7 @@ import styles from './style.module.scss';
 
 export default function InformacoesFinanceirasSicoobWP({ props }) {
 
+    const [dataSearch, setDataSearch] = useState();
     const [dolarCompra, setDolarCompra] = useState(0);
     const [dolarVenda, setDolarVenda] = useState(0);
     const [euroCompra, setEuroCompra] = useState(0);
@@ -39,6 +40,7 @@ export default function InformacoesFinanceirasSicoobWP({ props }) {
             .then(result => {
                 if (result.data.value.length) {
                     setResult(result.data.value);
+                    setDataSearch(result.data.value[0].field_1)
                 } else {
                     setResult([]);
                 }
@@ -54,27 +56,43 @@ export default function InformacoesFinanceirasSicoobWP({ props }) {
     });
 
     const convert = (value) => {
-        return value.toString().replace(".", ",");
+        if (value != null) {
+            return value.toString().replace(".", ",");
+        } else {
+            return "0";
+        }
     };
+
+    const convertISODate = (ISODate) => {
+        const data = new Date(ISODate);
+        const dia = data.getDate();
+        const mes = data.getMonth() + 1;
+        const ano = data.getFullYear();
+
+        return dia + "/" + mes + "/" + ano;
+    }
 
     return (
         <div className={styles.wpInformacoesFinanceiras}>
+            <div className={styles.dataSearch}>
+                Data da consulta: <span>{convertISODate(dataSearch)}</span>
+            </div>
             <ul>
                 <li>
                     <div className={styles.liLeft}>Dólar Compra</div>
-                    <div className={styles.liRight}>R$ {dolarCompra}</div>
+                    <div className={styles.liRight}>R$ {convert(dolarCompra)}</div>
                 </li>
                 <li>
                     <div className={styles.liLeft}>Dólar Venda</div>
-                    <div className={styles.liRight}>R$ {dolarVenda}</div>
+                    <div className={styles.liRight}>R$ {convert(dolarVenda)}</div>
                 </li>
                 <li>
                     <div className={styles.liLeft}>Euro Compra</div>
-                    <div className={styles.liRight}>R$ {euroCompra}</div>
+                    <div className={styles.liRight}>R$ {convert(euroCompra)}</div>
                 </li>
                 <li>
                     <div className={styles.liLeft}>Euro Venda</div>
-                    <div className={styles.liRight}>R$ {euroVenda}</div>
+                    <div className={styles.liRight}>R$ {convert(euroVenda)}</div>
                 </li>
 
                 {

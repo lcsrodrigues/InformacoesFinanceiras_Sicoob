@@ -1,6 +1,9 @@
 @import '~office-ui-fabric-react/dist/sass/References.scss';
 .wpInformacoesFinanceiras {
     width: 100%;
+    .dataSearch {
+        margin-bottom: 10px;
+    }
     ul {
         list-style-type: none;
         border: 0;
